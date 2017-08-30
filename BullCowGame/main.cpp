@@ -12,12 +12,14 @@ bool PlayAgain();
 // the entry point for our application
 int main()
 {
+	bool bPlayAgain = false;
+	do
+	{ 
 	PrintIntro();
-
 	PlayGame();
-
-	PlayAgain();
-
+	bPlayAgain = PlayAgain();	
+	} 
+	while (bPlayAgain);
 	// exit the application
 	return 0; 
 }
@@ -65,7 +67,7 @@ void PlayGame()
 // asks the player if they want to play again
 bool PlayAgain()
 {
-	cout << "Do you want to play again? ";
+	cout << "Do you want to play again (y/n)? ";
 	string Response = "";
 	getline(cin, Response);	
 	return (Response[0] == 'y') || (Response[0] == 'Y');
