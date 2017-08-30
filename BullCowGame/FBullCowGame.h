@@ -8,12 +8,12 @@ public:
 	int GetMaxTries();
 	int GetCurrentTry();
 	bool IsGameWon();
-	bool ValidGuess(std::string);
+	bool ValidGuess(std::string); // TODO make a more rich value.
 
 
 private:
-	int MyCurrentTry;
-	int MyMaxTries;
+	int MyCurrentTry =1;
+	int MyMaxTries = 4;
 	
 
 };
