@@ -6,7 +6,7 @@ using namespace std;
 void PrintIntro();
 void PlayGame();
 string GetGuess();
-
+bool PlayAgain();
 
 
 // the entry point for our application
@@ -15,6 +15,8 @@ int main()
 	PrintIntro();
 
 	PlayGame();
+
+	PlayAgain();
 
 	// exit the application
 	return 0; 
@@ -45,9 +47,11 @@ string GetGuess()
 }
 
 
+
+// loop for number of turns asking for guesses
 void PlayGame()
 {
-	//Loop for number of turns asking for guesses
+	
 	constexpr int GuessTimes = 4;
 	for (int count = 0; count <= GuessTimes; count++)
 	{
@@ -57,3 +61,15 @@ void PlayGame()
 
 	}
 }
+
+// asks the player if they want to play again
+bool PlayAgain()
+{
+	cout << "Do you want to play again? ";
+	string Response = "";
+	getline(cin, Response);	
+	return (Response[0] == 'y') || (Response[0] == 'Y');
+
+
+}
+
