@@ -53,10 +53,11 @@ std::string GetGuess()
 
 void PlayGame()
 {	
+	BCGame.Reset();
 	int MaxTries = BCGame.GetMaxTries();
-	std::cout << "Max tries: " << (MaxTries + 1) << std::endl;
+	std::cout << "Max tries: " << (MaxTries) << std::endl;
 	 // loop for number of turns asking for guesses
-	for (int count = 0; count <= MaxTries; count++)
+	for (int count = 1; count <= MaxTries; count++)
 	{
 		std::string Guess = GetGuess();
 		std::cout << "Your guess was: " << Guess << " \n";
