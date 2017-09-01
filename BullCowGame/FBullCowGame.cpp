@@ -1,7 +1,7 @@
 #include "FBullCowGame.h"
 
 using int32 = int;
-using Fstring = std::string;
+using FString = std::string;
 
 FBullCowGame::FBullCowGame()
 {
@@ -26,12 +26,31 @@ bool FBullCowGame::IsGameWon() const
 void FBullCowGame::Reset()
 {
 	constexpr int32 MAX_TRIES = 8;
-	MyCurrentTry = 1;
 	MyMaxTries = MAX_TRIES;
+
+	const FString HIDDEN_WORD = "planet";
+	MyHiddenWord = HIDDEN_WORD;
+
+	MyCurrentTry = 1;
+	
 	return;
 }
 
-bool FBullCowGame::ValidGuess(Fstring)
+bool FBullCowGame::ValidGuess(FString)
 {
 	return false;
+}
+// receives a VALID guess, increments turn, and returns count
+BullCowCount FBullCowGame::SubmitGuess(FString)
+{
+	// increment turn number
+	MyCurrentTry++;
+
+	// setup a return variable 
+	BullCowCount BullCowCount;
+
+	// loop through all letters in the guess
+		//compare letters agianst the hidden word
+
+	return BullCowCount;
 }
