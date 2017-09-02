@@ -7,12 +7,12 @@ user interaction. Forgame logic see the FBullCowGame class.
 #include <string>
 #include "FBullCowGame.h"
 
-using Ftext = std::string;
+using FText = std::string;
 using int32 = int;
 
 void PrintIntro();
 void PlayGame();
-Ftext GetGuess();
+FText GetGuess();
 bool PlayAgain();
 
 FBullCowGame BCGame; // instantiate a new game
@@ -58,7 +58,7 @@ void PlayGame()
 	std::cout << "Max tries: " << (MaxTries) << std::endl;
 	for (int32 count = 1; count <= MaxTries; count++)
 	{
-		Ftext Guess = GetGuess(); //TODO make loop checking valid
+		FText Guess = GetGuess(); //TODO make loop checking valid
 
 		// submit valid guess to game and receive counts
 		FBullCowCount BullCowCount = BCGame.SubmitGuess(Guess);
@@ -78,21 +78,21 @@ void PlayGame()
 bool PlayAgain()
 {
 	std::cout << "Do you want to play again (y/n)? ";
-	Ftext Response = "";
-	getline(std::cin, Response);	
+	FText Response = "";
+	std::getline(std::cin, Response);	
 	return (Response[0] == 'y') || (Response[0] == 'Y');
 
 
 }
 
 // get a guess from the player
-Ftext GetGuess()
+FText GetGuess()
 {
 	int32 CurrentTry = BCGame.GetCurrentTry();
 	std::cout << "Try " << CurrentTry;
 	std::cout << ". Enter your guess: ";
-	Ftext Guess = "";
-	getline(std::cin, Guess);
+	FText Guess = "";
+	std::getline(std::cin, Guess);
 	return Guess;
 
 
