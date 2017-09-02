@@ -65,7 +65,7 @@ void PlayGame()
 		// print number of bulls and cows
 
 		std::cout << "Bulls = " << BullCowCount.Bulls;
-		std::cout << "  Cows = " << BullCowCount.Bulls;
+		std::cout << "  Cows = " << BullCowCount.Cows;
 
 		std::cout << std::endl;
 
