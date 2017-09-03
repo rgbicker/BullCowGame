@@ -11,6 +11,18 @@ struct FBullCowCount
 	int32 Cows = 0;
 };
 
+enum class EGuessStatus 
+{
+	OK, 
+	Not_Isogram,
+	Letters_Only,
+	Not_Lowercase,
+	Wrong_Length,
+
+};
+
+
+
 class FBullCowGame
 {
 	public:
@@ -18,10 +30,13 @@ class FBullCowGame
 
 	int32 GetMaxTries() const;
 	int32 GetCurrentTry() const;
+	int32 GetHiddenWordLength() const;
+
 	bool IsGameWon() const;
+	EGuessStatus CheckGuessValidity(FString) const;
 
 	void Reset(); // TODO make a more rich return value.
-	bool ValidGuess(FString); // TODO make a more rich return value.
+	
 	FBullCowCount SubmitGuess(FString);
 
 	private:
