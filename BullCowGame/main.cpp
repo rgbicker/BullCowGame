@@ -40,7 +40,7 @@ void PrintIntro()
 {
 
 
-	std::cout << "Welcome to Bulls and Cows, a fun word game.\n";
+	std::cout << " \n\nWelcome to Bulls and Cows, a fun word game.\n";
 	std::cout << "Can you guess the " << BCGame.GetHiddenWordLength();
 	std::cout << " letter isogram (a word with no repeating letters) I'm thinking of?\n";
 	return;
@@ -52,9 +52,10 @@ void PlayGame()
 	BCGame.Reset();
 	int32 MaxTries = BCGame.GetMaxTries();
 
-	// loop for number of turns asking for guesses
+	// loop for guesses while the game 
+	// is NOT won and there are still tries remaining
 	std::cout << "Max tries: " << (MaxTries) << std::endl << std::endl;
-	for (int32 count = 1; count <= MaxTries; count++) //TODO change from FOR to WHILE loop once validating tries
+	while (!BCGame.IsGameWon() && BCGame.GetCurrentTry() <= MaxTries)
 	{
 		FText Guess = GetValidGuess();
 
@@ -67,16 +68,6 @@ void PlayGame()
 	}
 
 	// TODO add a game summary
-
-}
-
-// asks the player if they want to play again
-bool PlayAgain()
-{
-	std::cout << "Do you want to play again (y/n)? ";
-	FText Response = "";
-	std::getline(std::cin, Response);
-	return (Response[0] == 'y') || (Response[0] == 'Y');
 
 }
 
@@ -117,4 +108,14 @@ FText GetValidGuess()
 		
 	} while (Status != EGuessStatus::OK); // keep looping until we get no errors
 	return Guess;
+}
+
+// asks the player if they want to play again
+bool PlayAgain()
+{
+	std::cout << "Do you want to play again (y/n)? ";
+	FText Response = "";
+	std::getline(std::cin, Response);
+	return (Response[0] == 'y') || (Response[0] == 'Y');
+
 }

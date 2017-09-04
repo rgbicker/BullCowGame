@@ -25,7 +25,7 @@ int32 FBullCowGame::GetHiddenWordLength() const
 
 bool FBullCowGame::IsGameWon() const
 {
-	return false;
+	return bGameWon;
 }
 
 void FBullCowGame::Reset()
@@ -37,7 +37,7 @@ void FBullCowGame::Reset()
 	MyHiddenWord = HIDDEN_WORD;
 
 	MyCurrentTry = 1;
-	
+	bGameWon = false;
 	return;
 }
 
@@ -99,6 +99,14 @@ FBullCowCount FBullCowGame::SubmitValidGuess(FString Guess)
 			}
 				
 		}
+	}
+	if (BullCowCount.Bulls == WordLength)
+	{
+		bGameWon = true;
+	}
+	else
+	{
+		bGameWon = false;
 	}
 	return BullCowCount;
 }
