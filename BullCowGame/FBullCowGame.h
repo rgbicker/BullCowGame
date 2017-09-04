@@ -1,3 +1,4 @@
+
 #pragma once
 #include <string>
 
@@ -5,16 +6,16 @@ using FString = std::string;
 using int32 = int;
 
 // all values intitialized at 0
-struct FBullCowCount 
+struct FBullCowCount
 {
 	int32 Bulls = 0;
 	int32 Cows = 0;
 };
 
-enum class EGuessStatus 
+enum class EGuessStatus
 {
-	Invalid_Status, 
-	OK, 
+	Invalid_Status,
+	OK,
 	Not_Isogram,
 	Letters_Only,
 	Not_Lowercase,
@@ -26,7 +27,7 @@ enum class EGuessStatus
 
 class FBullCowGame
 {
-	public:
+public:
 	FBullCowGame(); // constructor
 
 	int32 GetMaxTries() const;
@@ -37,10 +38,10 @@ class FBullCowGame
 	EGuessStatus CheckGuessValidity(FString) const;
 
 	void Reset(); // TODO make a more rich return value.
-	
-	FBullCowCount SubmitGuess(FString);
 
-	private:
+	FBullCowCount SubmitValidGuess(FString);
+
+private:
 	// see constructor for innitialization
 	int32 MyCurrentTry;
 	int32 MyMaxTries;
