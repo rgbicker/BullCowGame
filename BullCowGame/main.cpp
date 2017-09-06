@@ -14,6 +14,7 @@ void PrintIntro();
 void PlayGame();
 FText GetValidGuess();
 bool PlayAgain();
+void PrintGameSummary();
 
 FBullCowGame BCGame; // instantiate a new game
 
@@ -66,8 +67,10 @@ void PlayGame()
 		std::cout << "  Cows = " << BullCowCount.Cows << std::endl;
 
 	}
+	
+	PrintGameSummary();
 
-	// TODO add a game summary
+	return;
 
 }
 
@@ -113,9 +116,21 @@ FText GetValidGuess()
 // asks the player if they want to play again
 bool PlayAgain()
 {
-	std::cout << "Do you want to play again (y/n)? ";
+	std::cout << "Do you want to play again with the same hidden word (y/n)? ";
 	FText Response = "";
 	std::getline(std::cin, Response);
 	return (Response[0] == 'y') || (Response[0] == 'Y');
 
+}
+
+void PrintGameSummary()
+{
+	if (BCGame.IsGameWon())
+	{
+		std::cout << "WELL DONE - You Win!\n\n";
+	}
+	else
+	{
+		std::cout << "Better luck next time!\n\n";
+	}
 }
